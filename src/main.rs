@@ -11,7 +11,8 @@ use embassy_rp::{
 use embedded_io_async::Read;
 use static_cell::ConstStaticCell;
 
-use {defmt::info, panic_probe as _};
+use defmt::info;
+use {defmt_rtt as _, panic_probe as _};
 
 static TX_BUF_CELL: ConstStaticCell<[u8; 128]> = ConstStaticCell::new([0; 128]);
 static RX_BUF_CELL: ConstStaticCell<[u8; 256]> = ConstStaticCell::new([0; 256]);
