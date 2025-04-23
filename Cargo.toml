@@ -1,0 +1,19 @@
+[package]
+name = "uart-split"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+cortex-m-rt = "0.7.5"
+embassy-rp = { version = "0.4", features = ["rp235xa", "time-driver"] }
+embassy-executor = { version = "0.7.0", features = [
+    "arch-cortex-m",
+    "defmt",
+    "executor-interrupt",
+    "executor-thread",
+    "task-arena-size-98304",
+] }
+embedded-io-async = { version = "0.6", features = ["defmt-03"] }
+defmt = "1.0"
+panic-probe = "1.0"
+static_cell = "2.1"
