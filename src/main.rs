@@ -35,6 +35,7 @@ async fn main(_spawner: Spawner) {
     let tx_buf: &'static mut [u8; 128] = TX_BUF_CELL.take();
     let rx_buf: &'static mut [u8; 256] = RX_BUF_CELL.take();
 
+    info!("BufferedUART");
     let uart = uart::BufferedUart::new(
         p.UART0, Irqs,    // our bound interrupt struct
         p.PIN_0, // TX pin
@@ -44,6 +45,7 @@ async fn main(_spawner: Spawner) {
         config,
     );
 
+    info!("Split");
     // Split into TX and RX halves
     let (_tx, mut rx) = uart.split();
 
